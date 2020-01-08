@@ -8,37 +8,73 @@
 
 -->
 
-# Project name here
+# Title
 
-> Summary description here.
-
-
-This file will become your README and also the index of your documentation.
-
-## Install
-
-`pip install your_project_name`
-
-## How to use
-
-Fill me in please! Don't forget code examples:
-<div class="codecell" markdown="1">
-<div class="input_area" markdown="1">
-
-```
-1+1
-```
-
-</div>
-<div class="output_area" markdown="1">
+> summary
 
 
+# Exploring large data storage formats
 
+InfoGroup dataset comes in plain CSV files and is rather big. Exploring alternatives for storage and processing.
 
-    2
+# Overview of options
 
+## Google BigQuery
 
+[Official page](https://cloud.google.com/bigquery/)
 
-</div>
+Pros
 
-</div>
+- Fast
+- Easy to collaborate on
+- SQL syntax
+- Easy to ingest raw data: no need to normalize tables
+
+Cons
+
+- Costs
+- Requires Internet connection
+- Proprietary format, lock in
+- Not available in RDC
+
+## Relational database
+
+- Can be on-permises or cloud.
+- Many alternative implementations: SQLite, Postgres, MySQL, ...
+
+Pros
+
+- Robust standard
+- Easily portable between providers
+- SQL syntax
+
+Cons
+
+- Slow
+  - Read-only might improve speeds
+- Even slower if schemas are not optimized: normalization, indexing
+
+## Data warehouse
+
+- Similar to GBQ, but can be installed on-premises. Unlikely in RDC.
+- Columnar storage optimized for analytics.
+
+[ClickHouse](https://clickhouse.yandex/), maybe others.
+
+## Plain CSV + pandas or Stata
+
+Pros
+
+- Universally supported format
+- Human readable on disk (unless compressed)
+
+Cons
+
+- Slow
+- In-memory processing
+
+## Parquet, Arrow, dask
+
+- Out of core processing
+- Open standard
+- Difference between serialization format (on disk storage) and processing. Pandas and dask can process both CSV and parquet files.

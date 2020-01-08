@@ -1,11 +1,11 @@
 ---
 
-title: Project name here
+title: Title
 
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "Summary description here."
+summary: "summary"
 ---
 <!--
 
@@ -24,65 +24,99 @@ summary: "Summary description here."
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This file will become your README and also the index of your documentation.</p>
+<h1 id="Exploring-large-data-storage-formats">Exploring large data storage formats<a class="anchor-link" href="#Exploring-large-data-storage-formats">&#182;</a></h1><p>InfoGroup dataset comes in plain CSV files and is rather big. Exploring alternatives for storage and processing.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Install">Install<a class="anchor-link" href="#Install">&#182;</a></h2>
+<h1 id="Overview-of-options">Overview of options<a class="anchor-link" href="#Overview-of-options">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>pip install your_project_name</code></p>
+<h2 id="Google-BigQuery">Google BigQuery<a class="anchor-link" href="#Google-BigQuery">&#182;</a></h2><p><a href="https://cloud.google.com/bigquery/">Official page</a></p>
+<p>Pros</p>
+<ul>
+<li>Fast</li>
+<li>Easy to collaborate on</li>
+<li>SQL syntax</li>
+<li>Easy to ingest raw data: no need to normalize tables</li>
+</ul>
+<p>Cons</p>
+<ul>
+<li>Costs</li>
+<li>Requires Internet connection</li>
+<li>Proprietary format, lock in</li>
+<li>Not available in RDC</li>
+</ul>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="How-to-use">How to use<a class="anchor-link" href="#How-to-use">&#182;</a></h2>
+<h2 id="Relational-database">Relational database<a class="anchor-link" href="#Relational-database">&#182;</a></h2><ul>
+<li>Can be on-permises or cloud.</li>
+<li>Many alternative implementations: SQLite, Postgres, MySQL, ...</li>
+</ul>
+<p>Pros</p>
+<ul>
+<li>Robust standard</li>
+<li>Easily portable between providers</li>
+<li>SQL syntax</li>
+</ul>
+<p>Cons</p>
+<ul>
+<li>Slow<ul>
+<li>Read-only might improve speeds</li>
+</ul>
+</li>
+<li>Even slower if schemas are not optimized: normalization, indexing</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Fill me in please! Don't forget code examples:</p>
+<h2 id="Data-warehouse">Data warehouse<a class="anchor-link" href="#Data-warehouse">&#182;</a></h2><ul>
+<li>Similar to GBQ, but can be installed on-premises. Unlikely in RDC.</li>
+<li>Columnar storage optimized for analytics.</li>
+</ul>
+<p><a href="https://clickhouse.yandex/">ClickHouse</a>, maybe others.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>2</pre>
-</div>
-
-</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Plain-CSV-+-pandas-or-Stata">Plain CSV + pandas or Stata<a class="anchor-link" href="#Plain-CSV-+-pandas-or-Stata">&#182;</a></h2><p>Pros</p>
+<ul>
+<li>Universally supported format</li>
+<li>Human readable on disk (unless compressed)</li>
+</ul>
+<p>Cons</p>
+<ul>
+<li>Slow</li>
+<li>In-memory processing</li>
+</ul>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Parquet,-Arrow,-dask">Parquet, Arrow, dask<a class="anchor-link" href="#Parquet,-Arrow,-dask">&#182;</a></h2><ul>
+<li>Out of core processing</li>
+<li>Open standard</li>
+<li>Difference between serialization format (on disk storage) and processing. Pandas and dask can process both CSV and parquet files.</li>
+</ul>
 
+</div>
+</div>
 </div>
 </div>
  
