@@ -1,11 +1,11 @@
 ---
 
-title: module name here
+title: Raw data
 
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "API details."
+summary: "Original raw data comes in CSV format, every year of data in a separate file. In this module, we construct schema that adheres to [Frictionless Data specificaitons](https://frictionlessdata.io/specs/), validate each table and erase problematic entries."
 ---
 <!--
 
@@ -23,6 +23,54 @@ summary: "API details."
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Original-data">Original data<a class="anchor-link" href="#Original-data">&#182;</a></h2><p>Create symlinks from data location to "./in".</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Validate-against-schema">Validate against schema<a class="anchor-link" href="#Validate-against-schema">&#182;</a></h2><p>That code is in a separate repo, and is possibly outdated. For now download validated and cleaned files from GCS.</p>
+
+<pre><code>mkdir -p out/valid
+gsutil -m cp -r gs://info-group-corr/* out/valid/</code></pre>
+<p>The last 2 years (2016 and 2017) are missing.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="File-size">File size<a class="anchor-link" href="#File-size">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To report number of lines, is it faster to iterate through file in Python or use system <code>wc</code> utility?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
@@ -34,9 +82,9 @@ summary: "API details."
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="say_hello" class="doc_header"><code>say_hello</code><a href="https://github.com/antonbabkin/ig_format/tree/master/ig_format/core.py#L6" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>say_hello</code>(<strong><code>to</code></strong>)</p>
+<h4 id="wc_py" class="doc_header"><code>wc_py</code><a href="https://github.com/antonbabkin/ig_format/tree/master/ig_format/core.py#L10" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>wc_py</code>(<strong><code>fpath</code></strong>)</p>
 </blockquote>
-<p>Says hello</p>
+<p>Return number of lines in a text file, using Python I/O.</p>
 
 </div>
 
@@ -46,18 +94,36 @@ summary: "API details."
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Example-usage">Example usage<a class="anchor-link" href="#Example-usage">&#182;</a></h3>
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="wc_sys" class="doc_header"><code>wc_sys</code><a href="https://github.com/antonbabkin/ig_format/tree/master/ig_format/core.py#L18" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>wc_sys</code>(<strong><code>fpath</code></strong>)</p>
+</blockquote>
+<p>Return number of lines in a text file, using sytem 'wc' utility.</p>
+
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">say_hello</span><span class="p">(</span><span class="s1">&#39;Pepe&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># notest</span>
+<span class="n">fpath</span> <span class="o">=</span> <span class="s1">&#39;./out/valid/2000.csv&#39;</span>
+<span class="o">%</span><span class="k">time</span> wc_py(fpath)
+<span class="o">%</span><span class="k">time</span> wc_sys(fpath)
 </pre></div>
 
     </div>
@@ -70,7 +136,87 @@ summary: "API details."
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Hello Pepe
+<pre>CPU times: user 9 s, sys: 1.47 s, total: 10.5 s
+Wall time: 10.4 s
+CPU times: user 6.76 ms, sys: 0 ns, total: 6.76 ms
+Wall time: 1.3 s
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>11169277</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So it is faster to use sytem <code>wc</code> utility.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="lsdir" class="doc_header"><code>lsdir</code><a href="https://github.com/antonbabkin/ig_format/tree/master/ig_format/core.py#L26" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>lsdir</code>(<strong><code>fdir</code></strong>)</p>
+</blockquote>
+<p>Return list of strings like "file_name file_size number_of_lines" for all files in :fdir:.</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Name	Lines	Size
+./out/valid/1997.csv	11263922	2G
+./out/valid/1998.csv	10774212	2G
+./out/valid/1999.csv	11020067	3G
+./out/valid/2000.csv	11169277	3G
+./out/valid/2001.csv	12549385	3G
+./out/valid/2002.csv	12848950	3G
+./out/valid/2003.csv	12743181	3G
+./out/valid/2004.csv	12616725	3G
+./out/valid/2005.csv	13196450	3G
+./out/valid/2006.csv	13350451	3G
+./out/valid/2007.csv	13701377	3G
+./out/valid/2008.csv	13887804	3G
+./out/valid/2009.csv	13669082	3G
+./out/valid/2010.csv	13834281	3G
+./out/valid/2011.csv	13468614	3G
+./out/valid/2012.csv	14715369	3G
+./out/valid/2013.csv	15954359	3G
+./out/valid/2014.csv	15916904	3G
+./out/valid/2015.csv	15628917	3G
 </pre>
 </div>
 </div>

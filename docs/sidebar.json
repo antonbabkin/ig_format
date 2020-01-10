@@ -1,6 +1,7 @@
 {
   "ig_format": {
     "Overview": "/",
-    "module name here": "/core"
+    "Raw data": "/core",
+    "Title": "/nbdev"
   }
 }

@@ -10,8 +10,11 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
-      title: module name here
+      title: Raw data
       url: /core
+    - output: web,pdf
+      title: Title
+      url: /nbdev
     output: web
     title: ig_format
   output: web
