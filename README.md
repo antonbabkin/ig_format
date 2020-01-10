@@ -12,18 +12,6 @@
 
 > InfoGroup dataset comes in plain CSV files and is rather big. Exploring alternatives for storage and processing.
 
-<div class="codecell" markdown="1">
-<div class="input_area" markdown="1">
-
-```python
-# all_flag
-# hide
-from ig_format.core import ls_validated
-```
-
-</div>
-
-</div>
 
 # Original data
 
