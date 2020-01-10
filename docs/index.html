@@ -1,11 +1,11 @@
 ---
 
-title: Title
+title: Exploring large data storage formats
 
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "summary"
+summary: "InfoGroup dataset comes in plain CSV files and is rather big. Exploring alternatives for storage and processing."
 ---
 <!--
 
@@ -22,12 +22,72 @@ summary: "summary"
 <div class="cell border-box-sizing code_cell rendered">
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># all_flag</span>
+<span class="c1"># hide</span>
+<span class="kn">from</span> <span class="nn">ig_format.core</span> <span class="kn">import</span> <span class="n">ls_validated</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Exploring-large-data-storage-formats">Exploring large data storage formats<a class="anchor-link" href="#Exploring-large-data-storage-formats">&#182;</a></h1><p>InfoGroup dataset comes in plain CSV files and is rather big. Exploring alternatives for storage and processing.</p>
+<h1 id="Original-data">Original data<a class="anchor-link" href="#Original-data">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ls_validated</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Name	Lines	Size
+./out/valid/1997.csv	11263922	2G
+./out/valid/1998.csv	10774212	2G
+./out/valid/1999.csv	11020067	3G
+./out/valid/2000.csv	11169277	3G
+./out/valid/2001.csv	12549385	3G
+./out/valid/2002.csv	12848950	3G
+./out/valid/2003.csv	12743181	3G
+./out/valid/2004.csv	12616725	3G
+./out/valid/2005.csv	13196450	3G
+./out/valid/2006.csv	13350451	3G
+./out/valid/2007.csv	13701377	3G
+./out/valid/2008.csv	13887804	3G
+./out/valid/2009.csv	13669082	3G
+./out/valid/2010.csv	13834281	3G
+./out/valid/2011.csv	13468614	3G
+./out/valid/2012.csv	14715369	3G
+./out/valid/2013.csv	15954359	3G
+./out/valid/2014.csv	15916904	3G
+./out/valid/2015.csv	15628917	3G
+</pre>
+</div>
+</div>
 
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
