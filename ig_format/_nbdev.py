@@ -2,10 +2,10 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"wc_py": "00_core.ipynb",
+index = {"extract_100k": "00_core.ipynb",
+         "wc_py": "00_core.ipynb",
          "wc_sys": "00_core.ipynb",
-         "lsdir": "00_core.ipynb",
-         "ls_validated": "00_core.ipynb"}
+         "lsdir": "00_core.ipynb"}
 
 modules = ["core.py"]
 

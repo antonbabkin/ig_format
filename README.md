@@ -13,13 +13,14 @@
 > InfoGroup dataset comes in plain CSV files and is rather big. Exploring alternatives for storage and processing.
 
 
-# Original data
+# Data
 
 <div class="codecell" markdown="1">
 <div class="input_area" markdown="1">
 
 ```python
-ls_validated()
+# Validated files
+print(*lsdir('./out/valid'), sep='\n')
 ```
 
 </div>
@@ -45,6 +46,42 @@ ls_validated()
     ./out/valid/2013.csv	15954359	3G
     ./out/valid/2014.csv	15916904	3G
     ./out/valid/2015.csv	15628917	3G
+
+
+</div>
+
+</div>
+<div class="codecell" markdown="1">
+<div class="input_area" markdown="1">
+
+```python
+# Extracts: first 100k records
+print(*lsdir('./out/extracts/100k'), sep='\n')
+```
+
+</div>
+<div class="output_area" markdown="1">
+
+    Name	Lines	Size
+    ./out/extracts/100k/1997.csv	100001	23M
+    ./out/extracts/100k/1998.csv	100001	27M
+    ./out/extracts/100k/1999.csv	100001	30M
+    ./out/extracts/100k/2000.csv	100001	27M
+    ./out/extracts/100k/2001.csv	100001	27M
+    ./out/extracts/100k/2002.csv	100001	29M
+    ./out/extracts/100k/2003.csv	100001	21M
+    ./out/extracts/100k/2004.csv	100001	22M
+    ./out/extracts/100k/2005.csv	100001	20M
+    ./out/extracts/100k/2006.csv	100001	22M
+    ./out/extracts/100k/2007.csv	100001	20M
+    ./out/extracts/100k/2008.csv	100001	20M
+    ./out/extracts/100k/2009.csv	100001	20M
+    ./out/extracts/100k/2010.csv	100001	20M
+    ./out/extracts/100k/2011.csv	100001	20M
+    ./out/extracts/100k/2012.csv	100001	20M
+    ./out/extracts/100k/2013.csv	100001	20M
+    ./out/extracts/100k/2014.csv	100001	21M
+    ./out/extracts/100k/2015.csv	100001	24M
 
 
 </div>

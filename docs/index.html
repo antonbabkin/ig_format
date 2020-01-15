@@ -24,7 +24,7 @@ summary: "InfoGroup dataset comes in plain CSV files and is rather big. Explorin
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Original-data">Original data<a class="anchor-link" href="#Original-data">&#182;</a></h1>
+<h1 id="Data">Data<a class="anchor-link" href="#Data">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -33,7 +33,8 @@ summary: "InfoGroup dataset comes in plain CSV files and is rather big. Explorin
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ls_validated</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Validated files</span>
+<span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">lsdir</span><span class="p">(</span><span class="s1">&#39;./out/valid&#39;</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -66,6 +67,53 @@ summary: "InfoGroup dataset comes in plain CSV files and is rather big. Explorin
 ./out/valid/2013.csv	15954359	3G
 ./out/valid/2014.csv	15916904	3G
 ./out/valid/2015.csv	15628917	3G
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Extracts: first 100k records</span>
+<span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">lsdir</span><span class="p">(</span><span class="s1">&#39;./out/extracts/100k&#39;</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Name	Lines	Size
+./out/extracts/100k/1997.csv	100001	23M
+./out/extracts/100k/1998.csv	100001	27M
+./out/extracts/100k/1999.csv	100001	30M
+./out/extracts/100k/2000.csv	100001	27M
+./out/extracts/100k/2001.csv	100001	27M
+./out/extracts/100k/2002.csv	100001	29M
+./out/extracts/100k/2003.csv	100001	21M
+./out/extracts/100k/2004.csv	100001	22M
+./out/extracts/100k/2005.csv	100001	20M
+./out/extracts/100k/2006.csv	100001	22M
+./out/extracts/100k/2007.csv	100001	20M
+./out/extracts/100k/2008.csv	100001	20M
+./out/extracts/100k/2009.csv	100001	20M
+./out/extracts/100k/2010.csv	100001	20M
+./out/extracts/100k/2011.csv	100001	20M
+./out/extracts/100k/2012.csv	100001	20M
+./out/extracts/100k/2013.csv	100001	20M
+./out/extracts/100k/2014.csv	100001	21M
+./out/extracts/100k/2015.csv	100001	24M
 </pre>
 </div>
 </div>

@@ -15,6 +15,9 @@ entries:
     - output: web,pdf
       title: Title
       url: /nbdev
+    - output: web,pdf
+      title: What is dask?
+      url: /dask
     output: web
     title: ig_format
   output: web
