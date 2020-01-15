@@ -1,4 +1,5 @@
 SRC = $(wildcard ./*.ipynb)
+DOCS_PORT = 4010
 
 all: ig_format docs
 
@@ -7,7 +8,7 @@ ig_format: $(SRC)
 	touch ig_format
 
 docs_serve: docs
-	cd docs && bundle exec jekyll serve
+	cd docs && bundle exec jekyll serve --port $(DOCS_PORT)
 
 docs: $(SRC)
 	nbdev_build_docs
