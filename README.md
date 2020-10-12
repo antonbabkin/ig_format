@@ -8,7 +8,7 @@
 
 -->
 
-# Exploring large data storage formats
+# Bigus datus: Working with bigger than memory data in Python
 
 > InfoGroup dataset comes in plain CSV files and is rather big. Exploring alternatives for storage and processing.
 
